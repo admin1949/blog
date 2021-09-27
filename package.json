@@ -1,0 +1,22 @@
+{
+  "name": "vuepress-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-autobar": "github:boboidream/vuepress-bar"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1"
+  }
+}
