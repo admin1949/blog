@@ -4,6 +4,7 @@ const autoSlider = require('../../autoSlider');
 module.exports = {
   title: "1m37",
   description: "1m37's blog",
+  base: '/blog/',
   // plugins: ['vuepress-plugin-autobar'],
   themeConfig: {
     nav: [
