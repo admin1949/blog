@@ -47,7 +47,6 @@
               case '[object Boolean]':
               case '[object String]':
               case '[object Symbol]':
-              case '[object Function]':
                   return target;
               case '[object Date]':
                   return new Date(target.getTime());

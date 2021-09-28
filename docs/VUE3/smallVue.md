@@ -27,13 +27,13 @@
     }
     class Dep {
         static target = null;
-    deps = [];
-    depend() {
-            if (Dep.target) {
-                Dep.target.addDeps(this);
+        deps = [];
+        depend() {
+                if (Dep.target) {
+                    Dep.target.addDeps(this);
+                }
             }
-        }
-    notify() {
+        notify() {
             this.deps.forEach(vm => vm.update());
         }
     }
@@ -65,10 +65,10 @@
             }
         walk(this._data);
         }
-    mount() {
+        mount() {
             new Watcher(this, () => this.render());
         }
-    render() {
+        render() {
             console.log('render');
             document.body.innerText = `hellow the text is: ${this._data.text}`
         }
@@ -122,16 +122,16 @@
             } else {
                 this._data = options?.data || {};
             }
-        walk(this._data);
-        resolveComputed(this._data, options?.computed || {}, this);
+            walk(this._data);
+            resolveComputed(this._data, options?.computed || {}, this);
         }
-    mount() {
+        mount() {
             new Watcher(this, () => this.render());
         }
-    render() {
+        render() {
             console.log('render');
             document.body.innerText = `hellow the text is: ${this._data.text1}
-    the computed value is: ${this._data.text3}`;
+                the computed value is: ${this._data.text3}`;
         }
     }
     var a = new Vue({
@@ -146,9 +146,9 @@
             get() {
                 return `${this._data.text1} join ${this._data.text2}`
             },
-                set(val) {
-                    this._data.text2 = val;
-                }
+            set(val) {
+                this._data.text2 = val;
+            }
         }
     }
     });
@@ -258,15 +258,15 @@
             }
         },
         computed: {
-        text3: {
-            get() {
-                return `${this._data.text1} join ${this._data.text2}`
-            },
+            text3: {
+                get() {
+                    return `${this._data.text1} join ${this._data.text2}`
+                },
                 set(val) {
                     this._data.text2 = val;
                 }
-        }
-    },
+            }
+        },
         watch: {
             text2(newValue, oldValue) {
                 console.log(`text2 has changed from ${oldValue} to ${newValue}`);
@@ -316,13 +316,13 @@
     }
     class Dep {
         static target = null;
-    deps = [];
-    depend() {
+        deps = [];
+        depend() {
             if (Dep.target) {
                 Dep.target.addDeps(this);
             }
         }
-    notify() {
+        notify() {
             this.deps.forEach(vm => vm.update());
         }
     }
@@ -407,13 +407,13 @@
         constructor(options) {
             if (typeof options?.data === 'function') {
                 this._data = options.data.call(this);    
-        } else {
+            } else {
                 this._data = options?.data || {};
             }
-        walk(this._data);
-        resolveWatch(options?.watch || {}, this);
+            walk(this._data);
+            resolveWatch(options?.watch || {}, this);
             resolveComputed(this._data, options?.computed || {}, this);
-        options?.created.call(this);
+            options?.created.call(this);
         }
         mount() {
             new Watcher(this, () => this.render());
@@ -421,7 +421,7 @@
         render() {
             console.log('render');
             document.body.innerText = `hellow the text is: ${this._data.text1}
-        the computed value is: ${this._data.text3}`;
+                the computed value is: ${this._data.text3}`;
         }
         $watch(expOrFn, callBack, options) {
             const self = this;
@@ -451,15 +451,15 @@
             }
         },
         computed: {
-        text3: {
-            get() {
-                return `${this._data.text1} join ${this._data.text2}`
-            },
-                set(val) {
-                    this._data.text2 = val;
-                }
-        }
-    },
+            text3: {
+                get() {
+                    return `${this._data.text1} join ${this._data.text2}`
+                },
+                    set(val) {
+                        this._data.text2 = val;
+                    }
+            }
+        },
         watch: {
             text2(newValue, oldValue) {
                 console.log(`text2 has changed from ${oldValue} to ${newValue}`);
